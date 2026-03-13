@@ -19,7 +19,7 @@
     <PackageVersion Include="Avalonia.Markup.Xaml" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
-    <PackageVersion Include="ProDataGrid" Version="11.3.11-preview.5" />
+    <PackageVersion Include="ProDataGrid" Version="11.3.11-preview.20" />
     <PackageVersion Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" Condition="'$(Configuration)' == 'Debug'" />
     <PackageVersion Include="Avalonia.Skia" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
