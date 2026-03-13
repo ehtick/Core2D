@@ -9,6 +9,7 @@ using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.Styling;
 using Avalonia.Styling;
 using Avalonia.Themes.Fluent;
@@ -148,6 +149,14 @@ public partial class App : Application
     public override void Initialize()
     {
         InitializeComponent();
+    }
+
+    public void InitializeComponent(bool loadXaml = true)
+    {
+        if (loadXaml)
+        {
+            AvaloniaXamlLoader.Load(this);
+        }
     }
 
     private static void RegisterGlobalExceptionHandlers()
