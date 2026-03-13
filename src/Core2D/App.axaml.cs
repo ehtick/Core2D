@@ -9,7 +9,6 @@ using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.Styling;
 using Avalonia.Styling;
 using Avalonia.Themes.Fluent;
@@ -23,13 +22,14 @@ using Core2D.Views;
 
 namespace Core2D;
 
-public class App : Application
+public partial class App : Application
 {
     public static string DefaultTheme { get; set; }
 
     public static ICommand? ChangeTheme { get; }
 
     private static bool _globalExceptionHandlersRegistered;
+    private static bool _dispatcherExceptionHandlerRegistered;
 
     static App()
     {
@@ -119,6 +119,8 @@ public class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
+        RegisterDispatcherExceptionHandler();
+
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktopLifetime)
@@ -170,6 +172,16 @@ public class App : Application
             LogUnhandledException("TaskScheduler.UnobservedTaskException", args.Exception);
             args.SetObserved();
         };
+    }
+
+    private static void RegisterDispatcherExceptionHandler()
+    {
+        if (_dispatcherExceptionHandlerRegistered)
+        {
+            return;
+        }
+
+        _dispatcherExceptionHandlerRegistered = true;
 
         Dispatcher.UIThread.UnhandledException += (_, args) =>
         {
