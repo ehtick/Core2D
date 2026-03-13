@@ -54,7 +54,9 @@
     <PackageReference Include="ThemeEditor.Controls.ColorPicker" />
     <PackageReference Include="Dock.Avalonia" />
     <PackageReference Include="Dock.Model.ReactiveUI" />
-    <PackageReference Include="ProDataGrid" />
+    <PackageReference Include="ProDataGrid" GeneratePathProperty="true">
+      <ExcludeAssets>compile</ExcludeAssets>
+    </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" />
     <PackageReference Include="System.Drawing.Common" />
     <PackageReference Include="Newtonsoft.Json" />
@@ -91,6 +93,9 @@
   <ItemGroup>
     <Reference Include="Avalonia.Markup.Xaml">
       <HintPath>$(PkgAvalonia)/lib/net8.0/Avalonia.Markup.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Avalonia.Controls.DataGrid">
+      <HintPath>$(PkgProDataGrid)/lib/net10.0/Avalonia.Controls.DataGrid.dll</HintPath>
     </Reference>
   </ItemGroup>
 
