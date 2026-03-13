@@ -2,6 +2,7 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <AvaloniaVersion>11.3.12</AvaloniaVersion>
+    <ProDataGridVersion>11.3.11-preview.20</ProDataGridVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Dock.Avalonia.Themes.Fluent" Version="11.3.11.5" />
@@ -19,8 +20,8 @@
     <PackageVersion Include="Avalonia.Markup.Xaml" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
-    <PackageVersion Include="ProDataGrid" Version="11.3.11-preview.20" />
-    <PackageVersion Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" Condition="'$(Configuration)' == 'Debug'" />
+    <PackageVersion Include="ProDataGrid" Version="$(ProDataGridVersion)" />
+    <PackageVersion Include="ProDiagnostics" Version="$(ProDataGridVersion)" Condition="'$(Configuration)' == 'Debug'" />
     <PackageVersion Include="Avalonia.Skia" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
