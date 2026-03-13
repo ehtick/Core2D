@@ -3,7 +3,6 @@
 
 #nullable enable
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 
 namespace Core2D.Views.Wizard.Export;
 
@@ -13,7 +12,4 @@ public partial class ExportWizardView : UserControl
     {
         InitializeComponent();
     }
-
-    private void InitializeComponent()
-        => AvaloniaXamlLoader.Load(this);
 }
