@@ -133,12 +133,24 @@ internal static class Program
 
             if (settings.UseHeadlessVnc)
             {
-                builder.AfterSetup(async _ => await ProcessSettings(settings))
+                builder.AfterSetup(async _ =>
+                {
+#if DEBUG
+                    Application.Current?.AttachDevTools();
+#endif
+                    await ProcessSettings(settings);
+                })
                     .StartWithHeadlessVncPlatform(settings.VncHost, settings.VncPort, args, ShutdownMode.OnMainWindowClose);
                 return;
             }
 
-            builder.AfterSetup(async _ => await ProcessSettings(settings))
+            builder.AfterSetup(async _ =>
+                {
+#if DEBUG
+                    Application.Current?.AttachDevTools();
+#endif
+                    await ProcessSettings(settings);
+                })
                 .StartWithClassicDesktopLifetime(args);
         }
         catch (Exception ex)

@@ -138,12 +138,6 @@ public partial class App : Application
         }
 
         base.OnFrameworkInitializationCompleted();
-#if DEBUG
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime)
-        {
-            this.AttachDevTools();
-        }
-#endif
     }
 
     public override void Initialize()
